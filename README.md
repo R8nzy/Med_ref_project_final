@@ -45,7 +45,10 @@ Wikipedia's article structure varies, so symptom/treatment extraction may occasi
 
 "Search by symptoms" UI is ready, but backend logic is still in progress.
 
-MedRef 🩺 (Русская версия)
+
+
+
+#MedRef 🩺 (Русская версия)
 Медицинский справочник на Flask, который подгружает описание болезней, симптомы и методы лечения в реальном времени из Wikipedia.
 
 ⚠️ ВАЖНО: Проект находится в разработке и будет дорабатываться.
