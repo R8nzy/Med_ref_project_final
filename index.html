@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}MedRef — Справочник болезней{% endblock %}
+
+{% block content %}
+
+  <section class="hero">
+    <div class="hero-badge">Медицинский справочник</div>
+    <h1>Болезни и симптомы<br>в двух словах</h1>
+    <p>Введите болезнь — узнайте симптомы и лечение.<br>
+       Введите симптомы — узнайте возможные болезни.</p>
+  </section>
+
+  <div class="search-card">
+    <form method="POST" action="/">
+
+      <div class="mode-tabs">
+        <label class="mode-tab {% if mode == 'disease' or not mode %}active{% endif %}">
+          <input type="radio" name="mode" value="disease"
+            {% if mode == 'disease' or not mode %}checked{% endif %} />
+          По болезни
+        </label>
+        <label class="mode-tab {% if mode == 'symptom' %}active{% endif %}">
+          <input type="radio" name="mode" value="symptom"
+            {% if mode == 'symptom' %}checked{% endif %} />
+          По симптомам
+        </label>
+      </div>
+
+      <div class="search-row">
+        <input
+          type="text"
+          name="query"
+          class="search-input"
+          placeholder="Например: грипп, ангина, мигрень…"
+          value="{{ query or '' }}"
+          required
+        />
+        <button type="submit" class="btn">Найти</button>
+      </div>
+
+    </form>
+  </div>
+
+  {% if result %}
+  <div class="result-card">
+    <div class="result-header">
+      <span class="result-title">{{ result.name }}</span>
+      <span class="result-badge">
+        {% if mode == 'disease' %}Болезнь{% else %}Симптомы{% endif %}
+      </span>
+    </div>
+    <div class="result-body">
+
+      {% if result.description %}
+      <p class="result-desc">{{ result.description }}</p>
+      {% endif %}
+
+      {% if result.symptoms %}
+      <div class="info-section">
+        <h3 class="section-label">Симптомы</h3>
+        <div class="tag-list">
+          {% for s in result.symptoms %}
+          <span class="tag">{{ s }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if result.treatment %}
+      <div class="info-section">
+        <h3 class="section-label">Лечение</h3>
+        <ul class="treatment-list">
+          {% for t in result.treatment %}
+          <li>{{ t }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <div class="disclaimer">
+        ⚠️ Информация носит справочный характер. Проконсультируйтесь с врачом.
+      </div>
+
+    </div>
+  </div>
+  {% endif %}
+
+  {% if error %}
+  <div class="error-card">⚠️ {{ error }}</div>
+  {% endif %}
+
+{% endblock %}
