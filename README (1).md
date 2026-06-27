@@ -1,7 +1,7 @@
 MedRef 🩺
 A simple medical reference web app built with Flask. Search for a disease and instantly get its description, symptoms, and treatment — pulled live from Wikipedia.
 
-**Author:** ФИО
+**Author:** Adamsopiyev Nuradil
 
 **Purpose:** MedRef helps people quickly find basic info about a disease (description, symptoms, treatment) without digging through long Wikipedia articles. It's meant as a fast first-stop reference, not a substitute for professional medical advice.
 
@@ -45,7 +45,7 @@ Known Limitations Wikipedia's article structure varies, so symptom/treatment ext
 MedRef 🩺 (Русская версия)
 Медицинский справочник на Flask, который подгружает описание болезней, симптомы и методы лечения в реальном времени из Wikipedia.
 
-**Автор:** ФИО
+**Автор:** Адамсопиев Нурадиль
 
 **Цель проекта:** MedRef помогает быстро находить базовую информацию о болезни (описание, симптомы, лечение) без необходимости искать её в длинных статьях Wikipedia. Это быстрый первый источник справки, а не замена консультации врача.
 
